@@ -8,6 +8,7 @@ namespace VehicleInventory
 {
     public class Vehicle
     {
+        private string vin;
         private string make;
         private string model;
         private string color;
@@ -16,8 +17,9 @@ namespace VehicleInventory
         private int originalMSRP;
         private int mileage; //In miles
 
-        public Vehicle (string make, string model, string color, int weight, int year, int originalMSRP, int mileage)
+        public Vehicle (string vin, string make, string model, string color, int weight, int year, int originalMSRP, int mileage)
         {
+            this.vin = vin;
             this.make = make;
             this.model = model;
             this.color = color;
@@ -27,6 +29,12 @@ namespace VehicleInventory
             this.mileage = mileage;
         }
 
+
+        public string Vin
+        {
+            get { return vin; }
+            set { vin = value; }
+        }
 
         public string Make
         {

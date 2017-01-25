@@ -10,10 +10,11 @@ namespace VehicleInventoryTests
         [TestMethod]
         public void VehicleCreation_AllAttriubutesAssigned()
         {
-            Vehicle testCar = new Vehicle("Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
+            Vehicle testCar = new Vehicle("1HGCM82633A004352", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
 
             Assert.IsNotNull(testCar);
 
+            Assert.AreEqual("1HGCM82633A004352", testCar.Vin);
             Assert.AreEqual("Ford", testCar.Make);
             Assert.AreEqual("Taurus", testCar.Model);
             Assert.AreEqual("Maroon", testCar.Color);
