@@ -11,8 +11,11 @@ namespace VehicleInventoryConsoleApp
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             //Vehicle car1 = new Vehicle();
             Console.WriteLine("Hello world!");
+            Console.WriteLine('\u00A9');
             Console.ReadLine();
         }
     }

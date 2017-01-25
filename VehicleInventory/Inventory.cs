@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace VehicleInventory
 {
-    class Inventory
+    public class Inventory
     {
         List<Vehicle> vehicleList;
+
         public Inventory()
         {
             vehicleList = new List<Vehicle>();
