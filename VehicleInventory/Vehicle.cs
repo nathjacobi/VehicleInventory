@@ -16,6 +16,18 @@ namespace VehicleInventory
         private int originalMSRP;
         private int mileage; //In miles
 
+        public Vehicle (string make, string model, string color, int weight, int year, int originalMSRP, int mileage)
+        {
+            this.make = make;
+            this.model = model;
+            this.color = color;
+            this.weight = weight;
+            this.year = year;
+            this.originalMSRP = originalMSRP;
+            this.mileage = mileage;
+        }
+
+
         public string Make
         {
             get { return make; }

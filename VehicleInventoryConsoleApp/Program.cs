@@ -11,7 +11,7 @@ namespace VehicleInventoryConsoleApp
     {
         static void Main(string[] args)
         {
-            Vehicle car1 = new Vehicle();
+            //Vehicle car1 = new Vehicle();
             Console.WriteLine("Hello world!");
             Console.ReadLine();
         }
