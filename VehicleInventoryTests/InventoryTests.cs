@@ -83,24 +83,16 @@ namespace VehicleInventoryTests
             testInventory2.AddVehicle(testCar2);
             testInventory2.AddVehicle(testCar3);
 
-            string inventory1_compareString = @"VIN: 1HGCM82633A001234, Make: Ford, Model: Taurus, Color: Maroon, 
-                Weight(in lbs): 3300, 
-                Year: 2006, Original MSRP: $22000, 
-                Mileage(in miles): 135000\n
-                VIN: 1HGCM82633A001010, Make: Tesla, Model: Roadster, Color: Silver, 
-                Weight(in lbs): 2500, 
-                Year: 2006, Original MSRP: $45000, 
-                Mileage(in miles): 75000\n";
+            string inventory1_compareString = "\nVIN: 1HGCM82633A001234, Make: Ford, Model: Taurus, Color: Maroon," +
+                " Weight(in lbs): 3300, Year: 2006, Original MSRP: $22000, Mileage(in Miles): 135000" +
+                "\nVIN: 1HGCM82633A001010, Make: Tesla, Model: Roadster, Color: Silver," +
+                " Weight(in lbs): 2500, Year: 2012, Original MSRP: $45000, Mileage(in Miles): 75000";
 
-            string inventory2_compareString = @"VIN: 1HGCM82633A005678, Make: BMW, Model: M3, Color: Blue, 
-                Weight(in lbs): 3000, 
-                Year: 2006, Original MSRP: $34000, 
-                Mileage(in miles): 95000    
-                \u00a9 Copyright BMW AG, Munich, Germany\n
-                VIN: 1HGCM82633A001010, Make: Tesla, Model: Roadster, Color: Silver, 
-                Weight(in lbs): 2500, 
-                Year: 2006, Original MSRP: $45000, 
-                Mileage(in miles): 75000\n";
+            string inventory2_compareString = "\nVIN: 1HGCM82633A005678, Make: BMW, Model: M3, Color: Blue," + 
+                " Weight(in lbs): 3000, Year: 2010, Original MSRP: $34000, Mileage(in Miles): 95000," +    
+                " \u00a9 Copyright BMW AG, Munich, Germany" +
+                "\nVIN: 1HGCM82633A001010, Make: Tesla, Model: Roadster, Color: Silver," + 
+                " Weight(in lbs): 2500, Year: 2012, Original MSRP: $45000, Mileage(in Miles): 75000";
 
             Assert.AreEqual(inventory1_compareString, testInventory1.ToString());
             Assert.AreEqual(inventory2_compareString, testInventory2.ToString());
