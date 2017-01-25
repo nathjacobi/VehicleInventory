@@ -32,7 +32,7 @@ namespace VehicleInventory
 
         public string ManufactureInfo()
         {
-            return "string";
+            return make;
         }
 
         public string Vin
