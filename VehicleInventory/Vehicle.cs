@@ -8,5 +8,56 @@ namespace VehicleInventory
 {
     public class Vehicle
     {
+        private string make;
+        private string model;
+        private string color;
+        private int weight; //In lbs
+        private int year;
+        private int originalMSRP;
+        private int mileage; //In miles
+
+        public string Make
+        {
+            get { return make; }
+            set { make = value; }
+        }
+
+        public string Model
+        {
+            get { return model; }
+            set { model = value; }
+        }
+
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+
+        public int Weight
+        {
+            get { return weight; }
+            set { weight = value; }
+        }
+        
+        public int Year
+        {
+            get { return year; }
+            set { year = value; }
+        }
+
+        public int OriginalMSRP
+        {
+            get { return originalMSRP; }
+            set { originalMSRP = value; }
+        }
+
+        public int Mileage
+        {
+            get { return mileage; }
+            set { mileage = value; }
+        }
+
+
     }
 }

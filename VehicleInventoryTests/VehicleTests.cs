@@ -8,7 +8,7 @@ namespace VehicleInventoryTests
     public class VehicleTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void VehicleCreation()
         {
             Assert.IsTrue(true);
         }
