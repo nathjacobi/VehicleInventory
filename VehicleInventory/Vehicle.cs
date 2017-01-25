@@ -30,6 +30,11 @@ namespace VehicleInventory
         }
 
 
+        public string ManufactureInfo()
+        {
+            return "string";
+        }
+
         public string Vin
         {
             get { return vin; }

@@ -24,6 +24,10 @@ namespace VehicleInventoryTests
             Assert.AreEqual(135000, testCar.Mileage);
         }
 
-  
+        [TestMethod]
+        public void ManufactureInfoCorrect()
+        {
+            Assert.Fail();
+        }
     }
 }
