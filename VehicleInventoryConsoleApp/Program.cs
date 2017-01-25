@@ -15,7 +15,8 @@ namespace VehicleInventoryConsoleApp
 
             //Vehicle car1 = new Vehicle();
             Console.WriteLine("Hello world!");
-            Console.WriteLine('\u00A9');
+            Console.WriteLine("\u00a9\n")
+
             Console.ReadLine();
         }
     }

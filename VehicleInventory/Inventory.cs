@@ -8,7 +8,7 @@ namespace VehicleInventory
 {
     public class Inventory
     {
-        List<Vehicle> vehicleList;
+        private IList<Vehicle> vehicleList;
 
         public Inventory()
         {
@@ -17,17 +17,17 @@ namespace VehicleInventory
 
         public void AddVehicle(Vehicle car)
         {
-
+            vehicleList.Add(car);
         }
 
         public void RemoveVehicle(Vehicle car)
         {
-
+            vehicleList.Remove(car);
         }
 
-        public List<Vehicle> GetVehicleList()
+        public IList<Vehicle> GetVehicleList()
         {
-            return new List<Vehicle>();
+            return vehicleList;
         }
 
         public override string ToString()

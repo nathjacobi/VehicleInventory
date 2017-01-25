@@ -20,7 +20,7 @@ namespace VehicleInventoryTests
         public void ReturnsInventoryList()
         {
             Inventory testInventory = new Inventory();
-            List<Vehicle> compareList = new List<Vehicle>();
+            IList<Vehicle> compareList = new List<Vehicle>();
 
             Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
             Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 18000, 175000);
@@ -44,8 +44,10 @@ namespace VehicleInventoryTests
             Inventory testInventory = new Inventory();
 
             testInventory.AddVehicle(testCar);
-
+            Console.WriteLine(testInventory);
             Assert.IsTrue(testInventory.GetVehicleList().Contains(testCar));
+            Console.ReadLine();
+
         }
 
         [TestMethod]
@@ -55,9 +57,13 @@ namespace VehicleInventoryTests
             Inventory testInventory = new Inventory();
 
             testInventory.AddVehicle(testCar);
+
+            Assert.AreEqual(1, testInventory.GetVehicleList().Count);
+
             testInventory.RemoveVehicle(testCar);
 
             Assert.IsFalse(testInventory.GetVehicleList().Contains(testCar));
+            Assert.AreEqual(0, testInventory.GetVehicleList().Count);
         }
 
         [TestMethod]
@@ -89,7 +95,7 @@ namespace VehicleInventoryTests
                 Weight(in lbs): 3000, 
                 Year: 2006, Original MSRP: $34000, 
                 Mileage(in miles): 95000    
-                \u00A9 Copyright BMW AG, Munich, Germany\n
+                \u00a9 Copyright BMW AG, Munich, Germany\n
                 VIN: 1HGCM82633A001010, Make: Tesla, Model: Roadster, Color: Silver, 
                 Weight(in lbs): 2500, 
                 Year: 2006, Original MSRP: $45000, 
