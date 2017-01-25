@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using VehicleInventory;
 
@@ -34,7 +35,7 @@ namespace VehicleInventoryTests
             testInventory.AddVehicle(testCar2);
             testInventory.AddVehicle(testCar3);
 
-            Assert.AreEqual(compareList, testInventory.GetVehicleList());
+            Assert.IsTrue(testInventory.GetVehicleList().SequenceEqual(compareList));
         }
 
         [TestMethod]
