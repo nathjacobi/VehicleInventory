@@ -10,6 +10,7 @@ namespace VehicleInventory
     {
         //List to hold all of the vehicles
         private List<Vehicle> vehicleList;
+        private SortedDictionary<string,Manufacturer> manufacturerDictionary;
 
         //Constructor, creates an empty list
         public Inventory()

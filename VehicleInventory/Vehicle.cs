@@ -17,7 +17,7 @@ namespace VehicleInventory
         private int originalMSRP;
         private int mileage; //In miles
 
-        public Vehicle (string vin, string make, string model, string color, int weight, int year, int originalMSRP, int mileage)
+        public Vehicle(string vin, string make, string model, string color, int weight, int year, int originalMSRP, int mileage)
         {
             this.vin = vin;
             this.make = make;
@@ -27,6 +27,15 @@ namespace VehicleInventory
             this.year = year;
             this.originalMSRP = originalMSRP;
             this.mileage = mileage;
+        }
+
+        public Manufacturer ManufacturerInformation()
+        {
+            Manufacturer makerInfo;
+            if (GlobalData.ManufacturerDictionary.TryGetValue(make, out makerInfo))
+                return makerInfo;
+            else
+                return null;
         }
 
         public string Vin
