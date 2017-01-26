@@ -36,6 +36,28 @@ namespace VehicleInventory
             return vehicleList;
         }
 
+        public List<Vehicle> GetVehicleList(int option)
+        {
+            List<Vehicle> copyVehicleList = vehicleList;
+            if (option == 0)
+            {
+                copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Vin.CompareTo(y.Vin); });
+            }
+            else if (option == 1)
+            {
+                copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Make.CompareTo(y.Make); });
+            }
+            else if (option == 2)
+            {
+                copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Year.CompareTo(y.Year); });
+            }
+            else
+            {
+                Console.WriteLine("No valid option selected. Original list returned.");
+            }
+            return copyVehicleList;
+        }
+
         //Override of the ToString function so the Inventory will output lists information
         public override string ToString()
         {

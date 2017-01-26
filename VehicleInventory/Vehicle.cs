@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VehicleInventory
 {
-    public class Vehicle
+    public class Vehicle //:IComparable<Vehicle>
     {
         private string vin;
         private string make;
@@ -86,6 +86,6 @@ namespace VehicleInventory
             set { mileage = value; }
         }
 
-
+       
     }
 }
