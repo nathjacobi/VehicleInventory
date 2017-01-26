@@ -29,12 +29,6 @@ namespace VehicleInventory
             this.mileage = mileage;
         }
 
-
-        public string ManufactureInfo()
-        {
-            return make;
-        }
-
         public string Vin
         {
             get { return vin; }
