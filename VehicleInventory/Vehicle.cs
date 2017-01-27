@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VehicleInventory
 {
-    public class Vehicle //:IComparable<Vehicle>
+    public class Vehicle
     {
         private string vin;
         private string make;
@@ -16,6 +16,9 @@ namespace VehicleInventory
         private int year;
         private int originalMSRP;
         private int mileage; //In miles
+
+        private DateTime dateOfLastOilChange;
+        private int mileageOfLastOilChange;
 
         public Vehicle(string vin, string make, string model, string color, int weight, int year, int originalMSRP, int mileage)
         {
@@ -27,6 +30,15 @@ namespace VehicleInventory
             this.year = year;
             this.originalMSRP = originalMSRP;
             this.mileage = mileage;
+
+            dateOfLastOilChange = new DateTime(year, 1, 1);
+            mileageOfLastOilChange = 0;
+        }
+
+        public void UpdateOilChangeInformation(int year, int day, int month, int mileageAtOilChange)
+        {
+            dateOfLastOilChange = new DateTime(year, month, day);
+            mileageOfLastOilChange = mileageAtOilChange;
         }
 
         //Returns the Manufacturer object that matches the vehicles's make
