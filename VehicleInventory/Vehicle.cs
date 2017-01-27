@@ -47,7 +47,7 @@ namespace VehicleInventory
         public bool NeedOilChange()
         {
             Manufacturer makerInfo;
-            GlobalData.ManufacturerDictionary.TryGetValue(make, out makerInfo);
+            Methods.ManufacturerDictionary.TryGetValue(make, out makerInfo);
 
             int daysSinceOilChange = (int) (DateTime.Now - dateOfLastOilChange).TotalDays;
             int milesSinceOilChange = mileage - mileageOfLastOilChange;
@@ -67,7 +67,7 @@ namespace VehicleInventory
             Manufacturer makerInfo;
 
             //Trys to get the Manufacturer from the global dictionary and returns it if successful
-            if (GlobalData.ManufacturerDictionary.TryGetValue(make, out makerInfo))
+            if (Methods.ManufacturerDictionary.TryGetValue(make, out makerInfo))
                 return makerInfo;
             //**DO THIS**
             //Should make this throw an exceptoion like ManufacturerInfoNotFound
