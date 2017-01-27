@@ -86,6 +86,17 @@ namespace VehicleInventory
             set { mileage = value; }
         }
 
-       
+        public override string ToString()
+        {
+            string vehicleToString = "";
+            vehicleToString += String.Format("\nVIN: {0}, Make: {1}, Model: {2}, Color: {3}," +
+                                " Weight(in lbs): {4}, Year: {5}, Original MSRP: ${6}, Mileage(in Miles): {7}",
+                                vin, make, model, color, weight, year, originalMSRP, mileage);
+            //The BMW's require a disclaimer at the end, the unicode symbol is the copyright symbol
+            if (make == "BMW")
+                vehicleToString += ", \u00a9 Copyright BMW AG, Munich, Germany";
+
+            return vehicleToString;
+        }
     }
 }

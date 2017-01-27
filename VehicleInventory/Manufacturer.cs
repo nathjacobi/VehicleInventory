@@ -36,5 +36,10 @@ namespace VehicleInventory
             get { return phoneNumber; }
             set { phoneNumber = value; }
         }
+
+        public override string ToString()
+        {
+            return String.Format("Name: {0}, Main Address: {1}, Telephone: {2}\n", name, mainAddress, phoneNumber);
+        }
     }
 }
