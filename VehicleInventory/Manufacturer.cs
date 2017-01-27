@@ -9,18 +9,18 @@ namespace VehicleInventory
     public class Manufacturer
     {
         //Attributes of a Manufacturer
-        private string Name { get; set; }
+        private string name;
         private string MainAddress { get; set; }
         private string PhoneNumber { get; set; }
         private bool NeedsOilChange { get; set; }
-        private int MilesPerOilChange { get; set; }
-        private int DaysPerOilChange { get; set; }
+        private int milesPerOilChange;
+        private int daysPerOilChange;
 
         //Constructor for Manufacturer. Takes in the name, address, and phone number
         //Also sets the oil requirements. Automatically sets the Subaru, VW, and Tesla Special conditions
         public Manufacturer(string name, string mainAddress, string phoneNumber)
         {
-            Name = name;
+            this.name = name;
             MainAddress = mainAddress;
             PhoneNumber = phoneNumber;
 
@@ -28,15 +28,15 @@ namespace VehicleInventory
             if (name == "Subaru")
             {
                 NeedsOilChange = true;
-                MilesPerOilChange = 7000;
-                DaysPerOilChange = 180;
+                milesPerOilChange = 7000;
+                daysPerOilChange = 180;
             }
             //If its a Volkswagen, sets the oil requirements to its special condition
             else if (name == "Volkswagen")
             {
                 NeedsOilChange = true;
-                MilesPerOilChange = 8000;
-                DaysPerOilChange = 210;
+                milesPerOilChange = 8000;
+                daysPerOilChange = 210;
             }
             //If its a Tesla, sets the oil requirements to its special condition
             else if (name == "Tesla")
@@ -47,8 +47,8 @@ namespace VehicleInventory
             else
             {
                 NeedsOilChange = true;
-                MilesPerOilChange = 3000;
-                DaysPerOilChange = 90;
+                milesPerOilChange = 3000;
+                daysPerOilChange = 90;
             }
         }
 
@@ -56,8 +56,26 @@ namespace VehicleInventory
         public void changeManufacturerOilRequirements(bool needOilChange, int milesPerChange, int daysPerChange)
         {
             NeedsOilChange = needOilChange;
-            MilesPerOilChange = milesPerChange;
-            DaysPerOilChange = daysPerChange;
+            milesPerOilChange = milesPerChange;
+            daysPerOilChange = daysPerChange;
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        public int MilesPerOilChange
+        {
+            get { return milesPerOilChange; }
+            set { milesPerOilChange = value; }
+        }
+
+        public int DaysPerOilChange
+        {
+            get { return daysPerOilChange; }
+            set { daysPerOilChange = value; }
         }
 
         //Returns a Manufacturer object's info as a formatted string

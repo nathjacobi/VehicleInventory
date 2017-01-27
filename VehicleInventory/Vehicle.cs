@@ -41,6 +41,25 @@ namespace VehicleInventory
             mileageOfLastOilChange = mileageAtOilChange;
         }
 
+        //**DO THIS**
+        //THIS WILL NEED THE DICTIONARY CHECK AS WELL
+        //OR I CAN HAVE THE METHOD CLASS DO IT
+        public bool NeedOilChange()
+        {
+            Manufacturer makerInfo;
+            GlobalData.ManufacturerDictionary.TryGetValue(make, out makerInfo);
+
+            int daysSinceOilChange = (int) (DateTime.Now - dateOfLastOilChange).TotalDays;
+            int milesSinceOilChange = mileage - mileageOfLastOilChange;
+
+            if (daysSinceOilChange <= makerInfo.MilesPerOilChange && milesSinceOilChange <= makerInfo.MilesPerOilChange)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         //Returns the Manufacturer object that matches the vehicles's make
         public Manufacturer ManufacturerInformation()
         {
