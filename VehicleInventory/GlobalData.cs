@@ -10,11 +10,13 @@ namespace VehicleInventory
     {
         public static Dictionary<string, Manufacturer> ManufacturerDictionary { get; set; }
 
+        //Adds the Manufacturer object to the dictionary with its name as a key
         public static void AddManufactuer(Manufacturer maker)
         {
             ManufacturerDictionary.Add(maker.Name, maker);
         }
 
+        //Given a list of vehicles, returns a list of all the vehicles that have the year given
         public static List<Vehicle> FindByYear(int givenYear, List<Vehicle> givenList)
         {
             List<Vehicle> matchingYear = new List<Vehicle>();
@@ -26,6 +28,7 @@ namespace VehicleInventory
             return matchingYear;
         }
 
+        //Given an Inventory, returns a list of all the vehicles that have the year given
         public static List<Vehicle> FindByYear(int givenYear, Inventory givenInventory)
         {
             List<Vehicle> matchingYear = new List<Vehicle>();
@@ -37,6 +40,7 @@ namespace VehicleInventory
             return matchingYear;
         }
 
+        //Given a list of vehicles, returns a list of all the vehicles that have the make given
         public static List<Vehicle> FindByMake(string givenMake, List<Vehicle> givenList)
         {
             List<Vehicle> matchingMake = new List<Vehicle>();
@@ -47,7 +51,8 @@ namespace VehicleInventory
             }
             return matchingMake;
         }
-
+        
+        //Given an Inventory, returns a list of all the vehicles that have the make given
         public static List<Vehicle> FindByMake(string givenMake, Inventory givenInventory)
         {
             List<Vehicle> matchingMake = new List<Vehicle>();
@@ -59,12 +64,14 @@ namespace VehicleInventory
             return matchingMake;
         }
 
+        //Given a list of vehicles, returns a list of all the vehicles with the given mileage added on
         public static void AddToMileage(int additionalMileage, List<Vehicle> givenList)
         {
             foreach (Vehicle car in givenList)
                 car.Mileage += additionalMileage;
         }
 
+        //Given an Inventory, returns a list of all the vehicles with the given mileage added on
         public static void AddToMileage(int additionalMileage, Inventory givenInventory)
         {
             foreach (Vehicle car in givenInventory.GetVehicleList())

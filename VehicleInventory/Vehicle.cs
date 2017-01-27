@@ -29,11 +29,17 @@ namespace VehicleInventory
             this.mileage = mileage;
         }
 
+        //Returns the Manufacturer object that matches the vehicles's make
         public Manufacturer ManufacturerInformation()
         {
+            //Manufacturer object to hold and return the info
             Manufacturer makerInfo;
+
+            //Trys to get the Manufacturer from the global dictionary and returns it if successful
             if (GlobalData.ManufacturerDictionary.TryGetValue(make, out makerInfo))
                 return makerInfo;
+            //**DO THIS**
+            //Should make this throw an exceptoion like ManufacturerInfoNotFound
             else
                 return null;
         }
@@ -86,9 +92,12 @@ namespace VehicleInventory
             set { mileage = value; }
         }
 
+        //ToString method for the vehicles that returns a formatted string of its info
         public override string ToString()
         {
             string vehicleToString = "";
+
+            //Formatted string that lists all of its info
             vehicleToString += String.Format("\nVIN: {0}, Make: {1}, Model: {2}, Color: {3}," +
                                 " Weight(in lbs): {4}, Year: {5}, Original MSRP: ${6}, Mileage(in Miles): {7}",
                                 vin, make, model, color, weight, year, originalMSRP, mileage);
@@ -96,6 +105,7 @@ namespace VehicleInventory
             if (make == "BMW")
                 vehicleToString += ", \u00a9 Copyright BMW AG, Munich, Germany";
 
+            //Return the final string
             return vehicleToString;
         }
     }

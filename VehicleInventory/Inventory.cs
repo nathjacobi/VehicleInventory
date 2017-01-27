@@ -10,7 +10,6 @@ namespace VehicleInventory
     {
         //List to hold all of the vehicles
         private List<Vehicle> vehicleList;
-        private SortedDictionary<string,Manufacturer> manufacturerDictionary;
 
         //Constructor, creates an empty list
         public Inventory()
@@ -35,54 +34,84 @@ namespace VehicleInventory
         {
             return vehicleList;
         }
-
+        
+        /*
+        Alternate get list function that can sort the list in the Inventory
+        The parameter is an integer that corresponds to an option that is available.
+            option = 0, Sort by the VIN number of all vehicles
+            option = 1, Sort by the Make then Model of all vehicles (Ex. Sorted would be BMW A, Ford A, Ford B, Nissan A)
+            option = 2, Sort by the Year of all vehicles
+        */
         public List<Vehicle> GetVehicleList(int option)
         {
             List<Vehicle> copyVehicleList = vehicleList;
+            //Sort the list by VIN number
             if (option == 0)
             {
                 copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Vin.CompareTo(y.Vin); });
             }
+            //Sort the list by make then model
             else if (option == 1)
             {
+                //After sorting by Make, it then calls helper function to sort by model
                 copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Make.CompareTo(y.Make); });
                 return SortByModel(copyVehicleList);
             }
+            //Sort the list by year
             else if (option == 2)
             {
                 copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Year.CompareTo(y.Year); });
             }
+            //**DO THIS**
+            //Temp, may have it throw exception
             else
             {
                 Console.WriteLine("No valid option selected. Original list returned.");
             }
+
+            //Returns the sorted list
             return copyVehicleList;
         }
 
+
+        //Private function for option = 1 for GetVehicleList
+        //Sorts the list by model after being sorted by make
         private List<Vehicle> SortByModel(List<Vehicle> carList)
         {
+            //Make a List for the final sort and a list to temporarily hold the vehicles
             List<Vehicle> sortedVehicleList = new List<Vehicle>();
             List<Vehicle> tempList = new List<Vehicle>();
 
             foreach (Vehicle car in carList)
             {
+                //If the tempList is empty, add the car to it
                 if (tempList.Count == 0)
                 {
                     tempList.Add(car);
                 }
+                //If its not empty and the Makes match, add the car to the list
                 else if (tempList[0].Make == car.Make)
                 {
                     tempList.Add(car);
                 }
+                //If not empty and the makes do not match
                 else
                 {
-                    tempList.Sort(delegate (Vehicle x, Vehicle y) { return x.Make.CompareTo(y.Make); });
+                    //Sort the tempList by Model
+                    tempList.Sort(delegate (Vehicle x, Vehicle y) { return x.Model.CompareTo(y.Model); });
+
+                    //Add the sorted list to the end of sortedVehicleList
                     sortedVehicleList.AddRange(tempList);
+
+                    //Clear the tempList
                     tempList.Clear();
+
+                    //Add car to the tempList
                     tempList.Add(car);
                 }
             }
 
+            //Return the final sorted list
             return sortedVehicleList;
         }
 
@@ -92,7 +121,7 @@ namespace VehicleInventory
             //Empty string to append to
             string listToString = "";
 
-            //Go through each vehicle in the list
+            //Go through each vehicle in the list and append its string form to the Inventory's string
             foreach (Vehicle car in vehicleList)
                 listToString += car.ToString();
 
