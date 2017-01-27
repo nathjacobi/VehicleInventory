@@ -46,6 +46,7 @@ namespace VehicleInventory
             else if (option == 1)
             {
                 copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Make.CompareTo(y.Make); });
+                return SortByModel(copyVehicleList);
             }
             else if (option == 2)
             {
@@ -56,6 +57,33 @@ namespace VehicleInventory
                 Console.WriteLine("No valid option selected. Original list returned.");
             }
             return copyVehicleList;
+        }
+
+        private List<Vehicle> SortByModel(List<Vehicle> carList)
+        {
+            List<Vehicle> sortedVehicleList = new List<Vehicle>();
+            List<Vehicle> tempList = new List<Vehicle>();
+
+            foreach (Vehicle car in carList)
+            {
+                if (tempList.Count == 0)
+                {
+                    tempList.Add(car);
+                }
+                else if (tempList[0].Make == car.Make)
+                {
+                    tempList.Add(car);
+                }
+                else
+                {
+                    tempList.Sort(delegate (Vehicle x, Vehicle y) { return x.Make.CompareTo(y.Make); });
+                    sortedVehicleList.AddRange(tempList);
+                    tempList.Clear();
+                    tempList.Add(car);
+                }
+            }
+
+            return sortedVehicleList;
         }
 
         //Override of the ToString function so the Inventory will output lists information

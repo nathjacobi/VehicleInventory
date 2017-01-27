@@ -59,22 +59,16 @@ namespace VehicleInventory
             return matchingMake;
         }
 
-        public static List<Vehicle> AddToMileage(int additionalMileage, List<Vehicle> givenList)
+        public static void AddToMileage(int additionalMileage, List<Vehicle> givenList)
         {
             foreach (Vehicle car in givenList)
-            {
                 car.Mileage += additionalMileage;
-            }
-            return givenList;
         }
 
-        public static List<Vehicle> AddToMileage(int additionalMileage, Inventory givenInventory)
+        public static void AddToMileage(int additionalMileage, Inventory givenInventory)
         {
             foreach (Vehicle car in givenInventory.GetVehicleList())
-            {
                 car.Mileage += additionalMileage;
-            }
-            return givenInventory.GetVehicleList();
         }
     }
 }

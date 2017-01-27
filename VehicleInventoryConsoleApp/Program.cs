@@ -15,14 +15,41 @@ namespace VehicleInventoryConsoleApp
 
             //Vehicle car1 = new Vehicle();
             Console.WriteLine("Hello world!");
-            Console.WriteLine("\u00a9\n");
-            Vehicle car = new Vehicle("1HGCM82633A004352", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "BMW", "M3", "Blue", 3000, 2010, 34000, 95000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 45000, 75000);
+            Vehicle testCar4 = new Vehicle("1HGCM82633A006767", "Ford", "Explorer", "Maroon", 4500, 2011, 28000, 91000);
+            Vehicle testCar5 = new Vehicle("1HGCM82633A001122", "BMW", "E300", "Maroon", 2800, 1999, 22000, 155000);
 
-            string carInfo = String.Format("VIN: {0}, Make: {1}, Model: {2}, Color: {3}," +
-                                "Weight{4}, Year: {5}, Original MSRP: ${6}, Mileage(in Miles): {7}\n",
-                                car.Vin, car.Make, car.Model, car.Color, car.Weight, car.Year,
-                                car.OriginalMSRP, car.Mileage);
-            Console.Write(carInfo);
+            Inventory testInventory1 = new Inventory();
+            List<Vehicle> testList = new List<Vehicle>();
+
+            testInventory1.AddVehicle(testCar1);
+            testInventory1.AddVehicle(testCar2);
+            testInventory1.AddVehicle(testCar3);
+            testInventory1.AddVehicle(testCar4);
+            testInventory1.AddVehicle(testCar5);
+
+            Console.WriteLine(testInventory1);
+
+            testInventory1.GetVehicleList(0);
+            Console.WriteLine(testInventory1);
+
+            testInventory1.GetVehicleList(1);
+            Console.WriteLine(testInventory1);
+
+            testInventory1.GetVehicleList(2);
+            Console.WriteLine(testInventory1);
+
+            testList = GlobalData.FindByMake("Ford", testInventory1);
+            Console.WriteLine(testList.Count);
+
+            testList = GlobalData.FindByYear(2006, testInventory1);
+            Console.WriteLine(testList.Count);
+
+            GlobalData.AddToMileage(111, testInventory1);
+            Console.WriteLine(testInventory1);
+
             Console.ReadLine();
         }
     }
