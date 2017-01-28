@@ -49,10 +49,9 @@ namespace VehicleInventory
             int daysSinceOilChange = (int) (DateTime.Now - dateOfLastOilChange).TotalDays;
             int milesSinceOilChange = mileage - mileageOfLastOilChange;
 
-            if (daysSinceOilChange <= makerInfo.MilesPerOilChange && milesSinceOilChange <= makerInfo.MilesPerOilChange)
-            {
+            if (makerInfo.RequiresOilChanges && daysSinceOilChange <= makerInfo.MilesPerOilChange
+                && milesSinceOilChange <= makerInfo.MilesPerOilChange)
                 return true;
-            }
 
             return false;
         }
