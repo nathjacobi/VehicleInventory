@@ -2,4 +2,3 @@ C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\Ve
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\bin\Debug\VehicleInventory.pdb
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\obj\Debug\VehicleInventory.dll
 C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\obj\Debug\VehicleInventory.pdb
-C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\obj\Debug\VehicleInventory.csprojResolveAssemblyReference.cache

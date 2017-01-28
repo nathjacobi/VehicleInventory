@@ -41,13 +41,13 @@ namespace VehicleInventoryConsoleApp
             testInventory1.GetVehicleList(2);
             Console.WriteLine(testInventory1);
 
-            testList = GlobalData.FindByMake("Ford", testInventory1);
+            testList = Methods.FindByMake("Ford", testInventory1);
             Console.WriteLine(testList.Count);
 
-            testList = GlobalData.FindByYear(2006, testInventory1);
+            testList = Methods.FindByYear(2006, testInventory1);
             Console.WriteLine(testList.Count);
 
-            GlobalData.AddToMileage(111, testInventory1);
+            Methods.AddToMileage(111, testInventory1);
             Console.WriteLine(testInventory1);
 
             Console.ReadLine();

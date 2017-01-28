@@ -1,0 +1,8 @@
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\bin\Release\VehicleInventory.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\bin\Release\VehicleInventory.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\obj\Release\VehicleInventory.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventory\VehicleInventory\obj\Release\VehicleInventory.pdb
+C:\VehicleInv\VehicleInventory.dll
+C:\VehicleInv\VehicleInventory.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventoryLibraryConsole\VehicleInventoryLibraryConsole\bin\VehicleInventory.dll
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\VehicleInventoryLibraryConsole\VehicleInventoryLibraryConsole\bin\VehicleInventory.pdb
