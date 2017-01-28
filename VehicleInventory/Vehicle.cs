@@ -41,13 +41,10 @@ namespace VehicleInventory
             mileageOfLastOilChange = mileageAtOilChange;
         }
 
-        //**DO THIS**
-        //THIS WILL NEED THE DICTIONARY CHECK AS WELL
-        //OR I CAN HAVE THE METHOD CLASS DO IT
         public bool NeedOilChange()
         {
             Manufacturer makerInfo;
-            Methods.ManufacturerDictionary.TryGetValue(make, out makerInfo);
+            makerInfo = Methods.GetManufacturer(make);
 
             int daysSinceOilChange = (int) (DateTime.Now - dateOfLastOilChange).TotalDays;
             int milesSinceOilChange = mileage - mileageOfLastOilChange;
@@ -65,14 +62,9 @@ namespace VehicleInventory
         {
             //Manufacturer object to hold and return the info
             Manufacturer makerInfo;
+            makerInfo = Methods.GetManufacturer(make);
 
-            //Trys to get the Manufacturer from the global dictionary and returns it if successful
-            if (Methods.ManufacturerDictionary.TryGetValue(make, out makerInfo))
-                return makerInfo;
-            //**DO THIS**
-            //Should make this throw an exceptoion like ManufacturerInfoNotFound
-            else
-                return null;
+            return makerInfo;
         }
 
         public string Vin
