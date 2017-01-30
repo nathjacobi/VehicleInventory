@@ -140,6 +140,7 @@ namespace VehicleInventoryTests
             Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 5000);
 
             List<Vehicle> testList = new List<Vehicle>();
+            testList.Add(testCar1);
 
             Methods.AddToMileage(250, testList);
 
@@ -152,12 +153,79 @@ namespace VehicleInventoryTests
             Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 5000);
 
             Inventory testInventory = new Inventory();
+            testInventory.AddVehicle(testCar1);
 
             Methods.AddToMileage(250, testInventory);
 
             Assert.AreEqual(5250, testInventory.GetVehicleList()[0].Mileage);
         }
 
+        [TestMethod]
+        public void AveragingMSRP_List()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
 
+            List<Vehicle> testList = new List<Vehicle>();
+            double expectedMSRP = (double)(20000 + 15000 + 50000) / (3);
+
+            testList.Add(testCar1);
+            testList.Add(testCar2);
+            testList.Add(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.AverageMSRP(testList));
+        }
+
+        [TestMethod]
+        public void AveragingMSRP_Inventory()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            Inventory testInventory = new Inventory();
+            double expectedMSRP = (double)(20000 + 15000 + 50000) / (3);
+
+            testInventory.AddVehicle(testCar1);
+            testInventory.AddVehicle(testCar2);
+            testInventory.AddVehicle(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.AverageMSRP(testInventory));
+        }
+
+        [TestMethod]
+        public void AveragingMileage_List()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            List<Vehicle> testList = new List<Vehicle>();
+            double expectedMSRP = (double)(135000 + 175000 + 75000) / (3);
+
+            testList.Add(testCar1);
+            testList.Add(testCar2);
+            testList.Add(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.AverageMileage(testList));
+        }
+
+        [TestMethod]
+        public void AveragingMileage_Inventory()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            Inventory testInventory = new Inventory();
+            double expectedMSRP = (double)(135000 + 175000 + 75000) / (3);
+
+            testInventory.AddVehicle(testCar1);
+            testInventory.AddVehicle(testCar2);
+            testInventory.AddVehicle(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.AverageMileage(testInventory));
+        }
     }
 }
