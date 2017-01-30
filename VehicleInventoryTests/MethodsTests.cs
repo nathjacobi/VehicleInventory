@@ -12,6 +12,8 @@ namespace VehicleInventoryTests
         [TestMethod]
         public void ManufacturerAdded()
         {
+            Methods.ManufacturerDictionary.Clear();
+
             Manufacturer testManufacturer = new Manufacturer("Ford", "1234 Fake St", "555-255-9999");
 
             Methods.AddManufactuer(testManufacturer);
@@ -25,6 +27,8 @@ namespace VehicleInventoryTests
         [TestMethod]
         public void ReturnManufacturer()
         {
+            Methods.ManufacturerDictionary.Clear();
+
             Manufacturer testManufacturer = new Manufacturer("Ford", "1234 Fake St", "555-255-9999");
             Methods.AddManufactuer(testManufacturer);
 
@@ -42,6 +46,8 @@ namespace VehicleInventoryTests
             "That manufacturer was not found")]
         public void ExceptionWhenNoMatchingManufacturer()
         {
+            Methods.ManufacturerDictionary.Clear();
+
             Methods.GetManufacturer("I Do Not Exist");
         }
 
@@ -51,6 +57,8 @@ namespace VehicleInventoryTests
              + " If updating information, the Manufacturer class has setters for its information.")]
         public void ExceptionWhenAddingManufacturerWithSameName()
         {
+            Methods.ManufacturerDictionary.Clear();
+
             Manufacturer testManufacturer1 = new Manufacturer("Ford", "1234 Fake St", "555-255-9999");
             Manufacturer testManufacturer2 = new Manufacturer("Ford", "5678 ReallyFake St", "555-888-9999");
 
@@ -527,6 +535,8 @@ namespace VehicleInventoryTests
         [TestMethod]
         public void CountingNeededOil_Inventory()
         {
+            Methods.ManufacturerDictionary.Clear();
+
             Manufacturer testFord = new Manufacturer("Ford", "1234 Fake St", "555-222-8888");
             Manufacturer testChevy = new Manufacturer("Chevy", "4568 Fake St", "555-444-7777");
             Manufacturer testTesla = new Manufacturer("Tesla", "5566 Sun St", "555-111-9999");
