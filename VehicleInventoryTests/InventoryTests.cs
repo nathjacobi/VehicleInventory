@@ -23,7 +23,6 @@ namespace VehicleInventoryTests
         public void ReturnsInventoryList()
         {
             Inventory testInventory1 = new Inventory();
-            Inventory testInventory2 = new Inventory();
 
             //List that will be compared with testInventory1
             List<Vehicle> compareList = new List<Vehicle>();
@@ -45,9 +44,138 @@ namespace VehicleInventoryTests
 
             //Checks that the vehicles were added and in the correct order
             Assert.IsTrue(testInventory1.GetVehicleList().SequenceEqual(compareList));
+        }
 
-            //Checks that an empty list can be returned
-            Assert.IsTrue(testInventory2.GetVehicleList().Count == 0);
+        //Tests that an inventory is properly sorting its list by VIN then returning a list
+        [TestMethod]
+        public void ReturnsInventoryList_SortedVIN()
+        {
+            Inventory testInventory1 = new Inventory();
+
+            //List that will be compared with testInventory1
+            List<Vehicle> compareList = new List<Vehicle>();
+            List<Vehicle> sortedList = new List<Vehicle>();
+            //Creating the vehicles
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 18000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 45000, 75000);
+
+            //Add the vehicles to the list that will be compared in the order they will be sorted
+            compareList.Add(testCar3);
+            compareList.Add(testCar1);
+            compareList.Add(testCar2);
+
+            //Add vehicles to the testInventory1
+            testInventory1.AddVehicle(testCar1);
+            testInventory1.AddVehicle(testCar2);
+            testInventory1.AddVehicle(testCar3);
+
+            //Sort by VIN
+            sortedList = testInventory1.GetVehicleList(0);
+
+            //Checks that the vehicles were sorted and in the correct order
+            Assert.IsTrue(sortedList.SequenceEqual(compareList));
+
+        }
+       
+        //Tests that an inventory is properly sorting its list by make then model then returning a list
+        [TestMethod]
+        public void ReturnsInventoryList_SortedMakeModel()
+        {
+            Inventory testInventory1 = new Inventory();
+
+            //List that will be compared with testInventory1
+            List<Vehicle> compareList = new List<Vehicle>();
+            List<Vehicle> sortedList = new List<Vehicle>();
+            //Creating the vehicles
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Ford", "Explorer", "Blue", 3000, 2010, 18000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 45000, 75000);
+
+            //Add the vehicles to the list that will be compared in the order they will be sorted
+            compareList.Add(testCar2);
+            compareList.Add(testCar1);
+            compareList.Add(testCar3);
+
+            //Add vehicles to the testInventory1
+            testInventory1.AddVehicle(testCar1);
+            testInventory1.AddVehicle(testCar2);
+            testInventory1.AddVehicle(testCar3);
+
+            //Sort by make then model
+            sortedList = testInventory1.GetVehicleList(1);
+
+            //Checks that the vehicles were sorted and in the correct order
+            Assert.IsTrue(sortedList.SequenceEqual(compareList));
+
+        }
+
+        //Tests that an inventory is properly sorting its list by year then returning a list
+        [TestMethod]
+        public void ReturnsInventoryList_SortedYear()
+        {
+            Inventory testInventory1 = new Inventory();
+
+            //List that will be compared with testInventory1
+            List<Vehicle> compareList = new List<Vehicle>();
+            List<Vehicle> sortedList = new List<Vehicle>();
+            //Creating the vehicles
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 204, 18000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 45000, 75000);
+
+            //Add the vehicles to the list that will be compared in the order they will be sorted
+            compareList.Add(testCar2);
+            compareList.Add(testCar1);
+            compareList.Add(testCar3);
+
+            //Add vehicles to the testInventory1
+            testInventory1.AddVehicle(testCar1);
+            testInventory1.AddVehicle(testCar2);
+            testInventory1.AddVehicle(testCar3);
+
+            //Sort by year
+            sortedList = testInventory1.GetVehicleList(2);
+
+            //Checks that the vehicles were sorted and in the correct order
+            Assert.IsTrue(sortedList.SequenceEqual(compareList));
+
+        }
+
+        //Tests that if empty, the Inventory will return an empty list
+        [TestMethod]
+        public void ReturnsInventory_Empty()
+        {
+            Inventory testInventory1 = new Inventory();
+
+            Assert.IsTrue(testInventory1.GetVehicleList().Count == 0);
+        }
+
+        //Tests that if empty, the Inventory can still return an empty list even if asking for VIN sorting
+        [TestMethod]
+        public void ReturnsInventory_SortedVIN_Empty()
+        {
+            Inventory testInventory1 = new Inventory();
+
+            Assert.IsTrue(testInventory1.GetVehicleList(0).Count == 0);
+        }
+
+        //Tests that if empty, the Inventory can still return an empty list even if asking for make then model sorting
+        [TestMethod]
+        public void ReturnsInventory_SortedMakeModel_Empty()
+        {
+            Inventory testInventory1 = new Inventory();
+
+            Assert.IsTrue(testInventory1.GetVehicleList(1).Count == 0);
+        }
+
+        //Tests that if empty, the Inventory can still return an empty list even if asking for year sorting
+        [TestMethod]
+        public void ReturnsInventory_SortedYear_Empty()
+        {
+            Inventory testInventory1 = new Inventory();
+
+            Assert.IsTrue(testInventory1.GetVehicleList(2).Count == 0);
         }
 
         //Tests that vehicles can be added to the list

@@ -41,7 +41,7 @@ namespace VehicleInventoryTests
             Assert.AreEqual(3000, testManufacturer.MilesPerOilChange);
             Assert.AreEqual(90, testManufacturer.DaysPerOilChange);
 
-            testManufacturer.changeManufacturerOilRequirements(true, 5000, 115);
+            testManufacturer.ChangeManufacturerOilRequirements(true, 5000, 115);
 
             //Tests the new values assigned
             Assert.AreEqual(true, testManufacturer.RequiresOilChanges);

@@ -53,7 +53,7 @@ namespace VehicleInventory
         }
 
         //Function to change the oil requirements for any Manufacturer in case more special conditions pop up
-        public void changeManufacturerOilRequirements(bool needOilChange, int milesPerChange, int daysPerChange)
+        public void ChangeManufacturerOilRequirements(bool needOilChange, int milesPerChange, int daysPerChange)
         {
             requiresOilChange = needOilChange;
             milesPerOilChange = milesPerChange;
