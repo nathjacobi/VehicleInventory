@@ -62,11 +62,10 @@ namespace VehicleInventory
             {
                 copyVehicleList.Sort(delegate (Vehicle x, Vehicle y) { return x.Year.CompareTo(y.Year); });
             }
-            //**DO THIS**
             //Temp, may have it throw exception
             else
             {
-                Console.WriteLine("No valid option selected. Original list returned.");
+                throw new Exception("Invalid option for GetVehicleList(int option) function.");
             }
 
             //Returns the sorted list

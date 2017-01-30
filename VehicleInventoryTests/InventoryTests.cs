@@ -119,5 +119,14 @@ namespace VehicleInventoryTests
             Assert.AreEqual(inventory1_compareString, testInventory1.ToString());
             Assert.AreEqual(inventory2_compareString, testInventory2.ToString());
         }
+
+        [TestMethod]
+        [ExpectedException(typeof (Exception),"Invalid option for GetVehicleList(int option) function.")]
+        public void ExceptionFor_InvalidOption_ForGetVehicleList()
+        {
+            Inventory testInventory = new Inventory();
+
+            testInventory.GetVehicleList(100);
+        }
     }
 }
