@@ -12,14 +12,15 @@ namespace VehicleInventory
         private string make;
         private string model;
         private string color;
-        private int weight; //In lbs
+        private int weight;
         private int year;
         private int originalMSRP;
-        private int mileage; //In miles
+        private int mileage;
 
         private DateTime dateOfLastOilChange;
         private int mileageOfLastOilChange;
 
+        //Constructor that sets all values given and sets the default oil change values
         public Vehicle(string vin, string make, string model, string color, int weight, int year, int originalMSRP, int mileage)
         {
             this.vin = vin;
@@ -31,26 +32,34 @@ namespace VehicleInventory
             this.originalMSRP = originalMSRP;
             this.mileage = mileage;
 
+            //Default oil change values are Jan 1st of the year of the vehicle and 0 miles.
             dateOfLastOilChange = new DateTime(year, 1, 1);
             mileageOfLastOilChange = 0;
         }
 
+        //Function that allows you to change the last oil change information
+        //Will store the date and the mileage the change occurred
         public void UpdateOilChangeInformation(int year, int month, int day, int mileageAtOilChange)
         {
             dateOfLastOilChange = new DateTime(year, month, day);
             mileageOfLastOilChange = mileageAtOilChange;
         }
 
+        //Checks if the car currently needs an oil change. Uses the current day
         public bool NeedOilChange()
         {
+            //Gets the manufacturer's info to know what requirements an oil change has
             Manufacturer makerInfo;
             makerInfo = Methods.GetManufacturer(make);
 
+            //Gets the days since and miles since an oil change
             int daysSinceOilChange = (int) (DateTime.Now - dateOfLastOilChange).TotalDays;
             int milesSinceOilChange = mileage - mileageOfLastOilChange;
 
-            if (makerInfo.RequiresOilChanges && daysSinceOilChange >= makerInfo.DaysPerOilChange
-                && milesSinceOilChange >= makerInfo.MilesPerOilChange)
+            //If the manufacturer requires an oil change and the days or miles since are greater than the requirement
+            //Then return true, else no need
+            if (makerInfo.RequiresOilChanges && 
+                (daysSinceOilChange >= makerInfo.DaysPerOilChange || milesSinceOilChange >= makerInfo.MilesPerOilChange))
                 return true;
 
             return false;
@@ -123,6 +132,7 @@ namespace VehicleInventory
         {
             get { return mileageOfLastOilChange; }
         }
+
         //ToString method for the vehicles that returns a formatted string of its info
         public override string ToString()
         {
@@ -130,7 +140,7 @@ namespace VehicleInventory
 
             //Formatted string that lists all of its info
             vehicleToString += String.Format("\nVIN: {0}, Make: {1}, Model: {2}, Color: {3}," +
-                                " Weight(in lbs): {4}, Year: {5}, Original MSRP: ${6}, Mileage(in Miles): {7}",
+                                " Weight: {4}, Year: {5}, Original MSRP: {6}, Mileage: {7}",
                                 vin, make, model, color, weight, year, originalMSRP, mileage);
             //The BMW's require a disclaimer at the end, the unicode symbol is the copyright symbol
             if (make == "BMW")

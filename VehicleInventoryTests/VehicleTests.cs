@@ -22,6 +22,8 @@ namespace VehicleInventoryTests
             Assert.AreEqual(2006, testCar.Year);
             Assert.AreEqual(22000, testCar.OriginalMSRP);
             Assert.AreEqual(135000, testCar.Mileage);
+            Assert.AreEqual(new DateTime(2006, 1, 1), testCar.DateOfLastOilChange);
+            Assert.AreEqual(0, testCar.MileageOfLastOilChange);
         }
 
         [TestMethod]

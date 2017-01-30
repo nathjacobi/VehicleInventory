@@ -104,16 +104,16 @@ namespace VehicleInventoryTests
 
             //The string testInventory1 should output
             string inventory1_compareString = "\nVIN: 1HGCM82633A001234, Make: Ford, Model: Taurus, Color: Maroon," +
-                " Weight(in lbs): 3300, Year: 2006, Original MSRP: $22000, Mileage(in Miles): 135000" +
+                " Weight: 3300, Year: 2006, Original MSRP: 22000, Mileage: 135000" +
                 "\nVIN: 1HGCM82633A001010, Make: Tesla, Model: Roadster, Color: Silver," +
-                " Weight(in lbs): 2500, Year: 2012, Original MSRP: $45000, Mileage(in Miles): 75000";
+                " Weight: 2500, Year: 2012, Original MSRP: 45000, Mileage: 75000";
             
             //The string testInventory2 should output, this contains a BMW so it should attach a disclaimer
             string inventory2_compareString = "\nVIN: 1HGCM82633A005678, Make: BMW, Model: M3, Color: Blue," + 
-                " Weight(in lbs): 3000, Year: 2010, Original MSRP: $34000, Mileage(in Miles): 95000," +    
+                " Weight: 3000, Year: 2010, Original MSRP: 34000, Mileage: 95000," +    
                 " \u00a9 Copyright BMW AG, Munich, Germany" +
                 "\nVIN: 1HGCM82633A001010, Make: Tesla, Model: Roadster, Color: Silver," + 
-                " Weight(in lbs): 2500, Year: 2012, Original MSRP: $45000, Mileage(in Miles): 75000";
+                " Weight: 2500, Year: 2012, Original MSRP: 45000, Mileage: 75000";
 
             //Compares the compare strings to the actual ToString output
             Assert.AreEqual(inventory1_compareString, testInventory1.ToString());
