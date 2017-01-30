@@ -92,6 +92,9 @@ namespace VehicleInventory
 
         public static double AverageMSRP(List<Vehicle> givenList)
         {
+            if (givenList.Count == 0)
+                return 0;
+
             int sum = 0;
             foreach (Vehicle car in givenList)
                 sum += car.OriginalMSRP;
@@ -101,6 +104,9 @@ namespace VehicleInventory
 
         public static double AverageMSRP(Inventory givenInventory)
         {
+            if (givenInventory.GetVehicleList().Count == 0)
+                return 0;
+
             int sum = 0;
             foreach (Vehicle car in givenInventory.GetVehicleList())
                 sum += car.OriginalMSRP;
@@ -110,6 +116,9 @@ namespace VehicleInventory
 
         public static double AverageMileage(List<Vehicle> givenList)
         {
+            if (givenList.Count == 0)
+                return 0;
+
             int sum = 0;
             foreach (Vehicle car in givenList)
                 sum += car.Mileage;
@@ -119,6 +128,9 @@ namespace VehicleInventory
 
         public static double AverageMileage(Inventory givenInventory)
         {
+            if (givenInventory.GetVehicleList().Count == 0)
+                return 0;
+
             int sum = 0;
             foreach (Vehicle car in givenInventory.GetVehicleList())
                 sum += car.Mileage;
@@ -128,6 +140,9 @@ namespace VehicleInventory
 
         public static int MaxMSRP(List<Vehicle> givenList)
         {
+            if (givenList.Count == 0)
+                return 0;
+
             int maxMSRP = givenList[0].OriginalMSRP;
             foreach(Vehicle car in givenList)
             {
@@ -139,6 +154,9 @@ namespace VehicleInventory
 
         public static int MaxMSRP(Inventory givenInventory)
         {
+            if (givenInventory.GetVehicleList().Count == 0)
+                return 0;
+
             int maxMSRP = givenInventory.GetVehicleList()[0].OriginalMSRP;
             foreach (Vehicle car in givenInventory.GetVehicleList())
             {
@@ -150,6 +168,9 @@ namespace VehicleInventory
 
         public static int MinMSRP(List<Vehicle> givenList)
         {
+            if (givenList.Count == 0)
+                return 0;
+
             int minMSRP = givenList[0].OriginalMSRP;
             foreach (Vehicle car in givenList)
             {
@@ -161,6 +182,9 @@ namespace VehicleInventory
 
         public static int MinMSRP(Inventory givenInventory)
         {
+            if (givenInventory.GetVehicleList().Count == 0)
+                return 0;
+
             int minMSRP = givenInventory.GetVehicleList()[0].OriginalMSRP;
             foreach (Vehicle car in givenInventory.GetVehicleList())
             {
@@ -172,6 +196,9 @@ namespace VehicleInventory
 
         public static int MaxMileage(List<Vehicle> givenList)
         {
+            if (givenList.Count == 0)
+                return 0;
+
             int maxMileage = givenList[0].Mileage;
             foreach (Vehicle car in givenList)
             {
@@ -183,6 +210,9 @@ namespace VehicleInventory
 
         public static int MaxMileage(Inventory givenInventory)
         {
+            if (givenInventory.GetVehicleList().Count == 0)
+                return 0;
+
             int maxMileage = givenInventory.GetVehicleList()[0].Mileage;
             foreach (Vehicle car in givenInventory.GetVehicleList())
             {
@@ -193,6 +223,9 @@ namespace VehicleInventory
         }
         public static int MinMileage(List<Vehicle> givenList)
         {
+            if (givenList.Count == 0)
+                return 0;
+
             int minMileage = givenList[0].Mileage;
             foreach (Vehicle car in givenList)
             {
@@ -204,6 +237,9 @@ namespace VehicleInventory
 
         public static int MinMileage(Inventory givenInventory)
         {
+            if (givenInventory.GetVehicleList().Count == 0)
+                return 0;
+
             int minMileage = givenInventory.GetVehicleList()[0].Mileage;
             foreach (Vehicle car in givenInventory.GetVehicleList())
             {
