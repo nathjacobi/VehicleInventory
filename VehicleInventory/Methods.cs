@@ -90,6 +90,7 @@ namespace VehicleInventory
                 car.Mileage += additionalMileage;
         }
 
+        //Given a list, get the average MSRP, returns 0 if empty
         public static double AverageMSRP(List<Vehicle> givenList)
         {
             if (givenList.Count == 0)
@@ -102,6 +103,7 @@ namespace VehicleInventory
             return (double) sum / givenList.Count;
         }
 
+        //Given an Inventory, get the average MSRP, returns 0 if empty
         public static double AverageMSRP(Inventory givenInventory)
         {
             if (givenInventory.GetVehicleList().Count == 0)
@@ -114,6 +116,7 @@ namespace VehicleInventory
             return (double)sum / givenInventory.GetVehicleList().Count;
         }
 
+        //Given a list, get the average mileage, returns 0 if empty
         public static double AverageMileage(List<Vehicle> givenList)
         {
             if (givenList.Count == 0)
@@ -126,6 +129,7 @@ namespace VehicleInventory
             return (double)sum / givenList.Count;
         }
 
+        //Given an Inventory, get the average mileage, returns 0 if empty
         public static double AverageMileage(Inventory givenInventory)
         {
             if (givenInventory.GetVehicleList().Count == 0)
@@ -138,6 +142,7 @@ namespace VehicleInventory
             return (double)sum / givenInventory.GetVehicleList().Count;
         }
 
+        //Given a list, get the max MSRP, returns 0 if empty
         public static int MaxMSRP(List<Vehicle> givenList)
         {
             if (givenList.Count == 0)
@@ -152,6 +157,7 @@ namespace VehicleInventory
             return maxMSRP;
         }
 
+        //Given an Inventory, get the max MSRP, returns 0 if empty
         public static int MaxMSRP(Inventory givenInventory)
         {
             if (givenInventory.GetVehicleList().Count == 0)
@@ -166,6 +172,7 @@ namespace VehicleInventory
             return maxMSRP;
         }
 
+        //Given a List, get the min MSRP, returns 0 if empty
         public static int MinMSRP(List<Vehicle> givenList)
         {
             if (givenList.Count == 0)
@@ -180,6 +187,7 @@ namespace VehicleInventory
             return minMSRP;
         }
 
+        //Given an Inventory, get the max MSRP, returns 0 if empty
         public static int MinMSRP(Inventory givenInventory)
         {
             if (givenInventory.GetVehicleList().Count == 0)
@@ -194,6 +202,7 @@ namespace VehicleInventory
             return minMSRP;
         }
 
+        //Given a List, get the max mileage, returns 0 if empty
         public static int MaxMileage(List<Vehicle> givenList)
         {
             if (givenList.Count == 0)
@@ -208,6 +217,7 @@ namespace VehicleInventory
             return maxMileage;
         }
 
+        //Given an Inventory, get the max mileage, returns 0 if empty
         public static int MaxMileage(Inventory givenInventory)
         {
             if (givenInventory.GetVehicleList().Count == 0)
@@ -221,6 +231,8 @@ namespace VehicleInventory
             }
             return maxMileage;
         }
+
+        //Given a List, get the min mileage, returns 0 if empty
         public static int MinMileage(List<Vehicle> givenList)
         {
             if (givenList.Count == 0)
@@ -235,6 +247,7 @@ namespace VehicleInventory
             return minMileage;
         }
 
+        //Given an Inventory, get the min mileage, returns 0 if empty
         public static int MinMileage(Inventory givenInventory)
         {
             if (givenInventory.GetVehicleList().Count == 0)
@@ -248,6 +261,8 @@ namespace VehicleInventory
             }
             return minMileage;
         }
+
+        //Given a List, get count of the number of vehicles needing an oil change
         public static int CountNeedOilChange(List<Vehicle> givenList)
         {
             int count = 0;
@@ -259,6 +274,7 @@ namespace VehicleInventory
             return count;
         }
 
+        //Given an Inventory, get count of the number of vehicles needing an oil change
         public static int CountNeedOilChange(Inventory givenInventory)
         {
             int count = 0;
