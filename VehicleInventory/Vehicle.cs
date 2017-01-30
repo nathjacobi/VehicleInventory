@@ -35,7 +35,7 @@ namespace VehicleInventory
             mileageOfLastOilChange = 0;
         }
 
-        public void UpdateOilChangeInformation(int year, int day, int month, int mileageAtOilChange)
+        public void UpdateOilChangeInformation(int year, int month, int day, int mileageAtOilChange)
         {
             dateOfLastOilChange = new DateTime(year, month, day);
             mileageOfLastOilChange = mileageAtOilChange;
