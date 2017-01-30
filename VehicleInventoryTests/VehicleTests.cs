@@ -7,6 +7,7 @@ namespace VehicleInventoryTests
     [TestClass]
     public class VehicleTests
     {
+        //Tests the a vehicle is created and all the given and default values are assigned
         [TestMethod]
         public void VehicleCreation_AllAttriubutesAssigned()
         {
@@ -26,6 +27,7 @@ namespace VehicleInventoryTests
             Assert.AreEqual(0, testCar.MileageOfLastOilChange);
         }
 
+        //Tests that updating the oil change info works as intended
         [TestMethod]
         public void UpdatingOilInformation()
         {
@@ -35,15 +37,15 @@ namespace VehicleInventoryTests
             int currentMonth = DateTime.Now.Month;
             int currentDay = DateTime.Now.Day;
 
-
             testCar1.UpdateOilChangeInformation(currentYear, currentMonth, currentDay, testCar1.Mileage);
 
             Assert.AreEqual(DateTime.Today, testCar1.DateOfLastOilChange);
             Assert.AreEqual(testCar1.Mileage, testCar1.MileageOfLastOilChange);
         }
 
+        //Checks that the Check oil function will return true if both date and mileage are over the limit
         [TestMethod]
-        public void CheckingNeedForOilChange_IfTrue()
+        public void CheckingNeedForOilChange_IfDateMileageOverLimit()
         {
             Methods.ManufacturerDictionary.Clear();
 
@@ -58,6 +60,24 @@ namespace VehicleInventoryTests
             Methods.ManufacturerDictionary.Clear();
         }
 
+        //Tests that the check oil function will return true if only the date is over the limit
+        [TestMethod]
+        public void CheckingNeedForOilChange_IfDateOverLimit()
+        {
+            Methods.ManufacturerDictionary.Clear();
+
+            Manufacturer testFord = new Manufacturer("Ford", "1234 Fake St", "555-222-8888");
+
+            Methods.AddManufactuer(testFord);
+
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 1000);
+
+            Assert.IsTrue(testCar1.NeedOilChange());
+
+            Methods.ManufacturerDictionary.Clear();
+        }
+
+        //Tests that the check oil function will return true if both date and mileage are within the limit
         [TestMethod]
         public void CheckingNeedForOilChange_IfFalse()
         {
@@ -81,6 +101,7 @@ namespace VehicleInventoryTests
             Methods.ManufacturerDictionary.Clear();
         }
 
+        //Checks that the check oil function will return false if the manufacturer does not require it
         [TestMethod]
         public void CheckingNeedForOilChange_IfNoManufacturerNeed()
         {
