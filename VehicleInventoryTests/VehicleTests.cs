@@ -23,5 +23,60 @@ namespace VehicleInventoryTests
             Assert.AreEqual(22000, testCar.OriginalMSRP);
             Assert.AreEqual(135000, testCar.Mileage);
         }
+
+        [TestMethod]
+        public void CheckingNeedForOilChange_IfTrue()
+        {
+            Methods.ManufacturerDictionary.Clear();
+
+            Manufacturer testFord = new Manufacturer("Ford", "1234 Fake St", "555-222-8888");
+
+            Methods.AddManufactuer(testFord);
+
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+
+            Assert.IsTrue(testCar1.NeedOilChange());
+
+            Methods.ManufacturerDictionary.Clear();
+        }
+
+        [TestMethod]
+        public void CheckingNeedForOilChange_IfFalse()
+        {
+            Methods.ManufacturerDictionary.Clear();
+
+            Manufacturer testFord = new Manufacturer("Ford", "1234 Fake St", "555-222-8888");
+
+            Methods.AddManufactuer(testFord);
+
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+
+            int currentYear = DateTime.Now.Year;
+            int currentMonth = DateTime.Now.Month;
+            int currentDay = DateTime.Now.Day;
+
+
+            testCar1.UpdateOilChangeInformation(currentYear, currentMonth, currentDay, testCar1.Mileage);
+
+            Assert.IsFalse(testCar1.NeedOilChange());
+
+            Methods.ManufacturerDictionary.Clear();
+        }
+
+        [TestMethod]
+        public void CheckingNeedForOilChange_IfNoManufacturerNeed()
+        {
+            Methods.ManufacturerDictionary.Clear();
+
+            Manufacturer testTesla = new Manufacturer("Tesla", "5566 Sun St", "555-111-9999");
+
+            Methods.AddManufactuer(testTesla);
+
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            Assert.IsFalse(testCar1.NeedOilChange());
+
+            Methods.ManufacturerDictionary.Clear();
+        }
     }
 }

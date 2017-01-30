@@ -8,7 +8,7 @@ namespace VehicleInventoryTests
     public class ManufacturerTests
     {
         [TestMethod]
-        public void ManufacturerCreation_AttributeAssignment()
+        public void ManufacturerCreation_AllAttributeAssigned()
         {
             Manufacturer testManufacturer1 = new Manufacturer("Ford", "1234 Huxley St, Detroit MI, 55422", "225-514-8457");
             Manufacturer testManufacturer2 = new Manufacturer("Tesla", "5678 Electric St, Palo Alto CA, 89422", "555-667-1234");
