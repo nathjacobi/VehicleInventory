@@ -114,6 +114,15 @@ namespace VehicleInventory
             set { mileage = value; }
         }
 
+        public DateTime DateOfLastOilChange
+        {
+            get { return dateOfLastOilChange; }
+        }
+
+        public int MileageOfLastOilChange
+        {
+            get { return mileageOfLastOilChange; }
+        }
         //ToString method for the vehicles that returns a formatted string of its info
         public override string ToString()
         {

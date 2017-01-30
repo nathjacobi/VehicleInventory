@@ -25,6 +25,22 @@ namespace VehicleInventoryTests
         }
 
         [TestMethod]
+        public void UpdatingOilInformation()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+
+            int currentYear = DateTime.Now.Year;
+            int currentMonth = DateTime.Now.Month;
+            int currentDay = DateTime.Now.Day;
+
+
+            testCar1.UpdateOilChangeInformation(currentYear, currentMonth, currentDay, testCar1.Mileage);
+
+            Assert.AreEqual(DateTime.Today, testCar1.DateOfLastOilChange);
+            Assert.AreEqual(testCar1.Mileage, testCar1.MileageOfLastOilChange);
+        }
+
+        [TestMethod]
         public void CheckingNeedForOilChange_IfTrue()
         {
             Methods.ManufacturerDictionary.Clear();
