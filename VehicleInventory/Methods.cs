@@ -8,7 +8,7 @@ namespace VehicleInventory
 {
     public static class Methods
     {
-        public static Dictionary<string, Manufacturer> ManufacturerDictionary { get; set; }
+        public static Dictionary<string, Manufacturer> ManufacturerDictionary = new Dictionary<string, Manufacturer>();
 
         //Adds the Manufacturer object to the dictionary with its name as a key
         public static void AddManufactuer(Manufacturer maker)
