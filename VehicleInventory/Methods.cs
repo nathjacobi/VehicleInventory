@@ -8,23 +8,33 @@ namespace VehicleInventory
 {
     public static class Methods
     {
+        //A public static dictionary to store the manufacturer info, and accessible to all classes
         public static Dictionary<string, Manufacturer> ManufacturerDictionary = new Dictionary<string, Manufacturer>();
 
         //Adds the Manufacturer object to the dictionary with its name as a key
         public static void AddManufactuer(Manufacturer maker)
         {
+            //If the manufacturer already has an entry, it throws an exception
+            //The exception suggests that if trying to update the info, the Manufacturer class should have the functiions needed.
             if (ManufacturerDictionary.ContainsKey(maker.Name))
                 throw (new Exception("That Manufacturer already has information set."
                     + "If updating information, the Manufacturer class has setters for its information."));
+
+            //Add the Manufacturer with the name as the key
             ManufacturerDictionary.Add(maker.Name, maker);
         }
 
+        //Function that takes a string and searches the dictionary for that key
         public static Manufacturer GetManufacturer(string name)
         {
+            //To store the key's value
             Manufacturer foundManufacturer;
+
+            //Uses TryGetValue funtion, returns the Manufacturer if it exists
             if (ManufacturerDictionary.TryGetValue(name, out foundManufacturer))
                 return foundManufacturer;
             else
+                //If the manufacturer does not exist, it throws an exception and lets the user know
                 throw (new Exception("That manufacturer was not found"));
         }
 
