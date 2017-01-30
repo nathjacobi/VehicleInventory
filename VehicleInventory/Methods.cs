@@ -13,6 +13,9 @@ namespace VehicleInventory
         //Adds the Manufacturer object to the dictionary with its name as a key
         public static void AddManufactuer(Manufacturer maker)
         {
+            if (ManufacturerDictionary.ContainsKey(maker.Name))
+                throw (new Exception("That Manufacturer already has information set."
+                    + "If updating information, the Manufacturer class has setters for its information."));
             ManufacturerDictionary.Add(maker.Name, maker);
         }
 

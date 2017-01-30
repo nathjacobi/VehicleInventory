@@ -26,7 +26,7 @@ namespace VehicleInventoryTests
             Inventory testInventory2 = new Inventory();
 
             //List that will be compared with testInventory1
-            IList<Vehicle> compareList = new List<Vehicle>();
+            List<Vehicle> compareList = new List<Vehicle>();
 
             //Creating the vehicles
             Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 135000);
