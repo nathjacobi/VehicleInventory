@@ -110,7 +110,7 @@ namespace VehicleInventory
                     tempList.Add(car);
                 }
             }
-
+            sortedVehicleList.AddRange(tempList);
             //Return the final sorted list
             return sortedVehicleList;
         }
