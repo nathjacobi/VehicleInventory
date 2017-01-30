@@ -148,6 +148,16 @@ namespace VehicleInventoryTests
         }
 
         [TestMethod]
+        public void AddingMileageEmpty_List()
+        {
+            List<Vehicle> testList = new List<Vehicle>();
+
+            Methods.AddToMileage(250, testList);
+
+            Assert.IsTrue(testList.Count == 0);
+        }
+
+        [TestMethod]
         public void AddingMileage_Inventory()
         {
             Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 22000, 5000);
@@ -158,6 +168,16 @@ namespace VehicleInventoryTests
             Methods.AddToMileage(250, testInventory);
 
             Assert.AreEqual(5250, testInventory.GetVehicleList()[0].Mileage);
+        }
+
+        [TestMethod]
+        public void AddingMileageEmpty_Inventory()
+        {
+            Inventory testInventory = new Inventory();
+
+            Methods.AddToMileage(250, testInventory);
+
+            Assert.IsTrue(testInventory.GetVehicleList().Count == 0);
         }
 
         [TestMethod]
@@ -178,6 +198,14 @@ namespace VehicleInventoryTests
         }
 
         [TestMethod]
+        public void AveragingMSRPEmpty_List()
+        {
+            List<Vehicle> testList = new List<Vehicle>();
+
+            Assert.AreEqual(0, Methods.AverageMSRP(testList));
+        }
+
+        [TestMethod]
         public void AveragingMSRP_Inventory()
         {
             Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
@@ -192,6 +220,14 @@ namespace VehicleInventoryTests
             testInventory.AddVehicle(testCar3);
 
             Assert.AreEqual(expectedMSRP, Methods.AverageMSRP(testInventory));
+        }
+
+        [TestMethod]
+        public void AveragingMSRPEmpty_Inventory()
+        {
+            Inventory testInventory = new Inventory();
+
+            Assert.AreEqual(0, Methods.AverageMSRP(testInventory));
         }
 
         [TestMethod]
@@ -212,6 +248,14 @@ namespace VehicleInventoryTests
         }
 
         [TestMethod]
+        public void AveragingMileageEmpty_List()
+        {
+            List<Vehicle> testList = new List<Vehicle>();
+
+            Assert.AreEqual(0, Methods.AverageMileage(testList));
+        }
+
+        [TestMethod]
         public void AveragingMileage_Inventory()
         {
             Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
@@ -226,6 +270,198 @@ namespace VehicleInventoryTests
             testInventory.AddVehicle(testCar3);
 
             Assert.AreEqual(expectedMSRP, Methods.AverageMileage(testInventory));
+        }
+
+        [TestMethod]
+        public void AveragingMileageEmpty_Inventory()
+        {
+            Inventory testInventory = new Inventory();
+
+            Assert.AreEqual(0, Methods.AverageMileage(testInventory));
+        }
+
+        public void FindingMaxMSRP_List()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            List<Vehicle> testList = new List<Vehicle>();
+            int expectedMSRP = 50000;
+
+            testList.Add(testCar1);
+            testList.Add(testCar2);
+            testList.Add(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.MaxMSRP(testList));
+        }
+
+        public void FindingMaxMSRPEmpty_List()
+        {
+            List<Vehicle> testList = new List<Vehicle>();
+
+            Assert.AreEqual(0, Methods.MaxMSRP(testList));
+        }
+
+        public void FindingMaxMSRP_Inventory()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            Inventory testInventory = new Inventory();
+            int expectedMSRP = 50000;
+
+            testInventory.AddVehicle(testCar1);
+            testInventory.AddVehicle(testCar2);
+            testInventory.AddVehicle(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.MaxMSRP(testInventory));
+        }
+
+        public void FindingMaxMSRPEmpty_Inventory()
+        {
+            Inventory testInventory = new Inventory();
+
+            Assert.AreEqual(0, Methods.MaxMSRP(testInventory));
+        }
+
+        public void FindingMinMSRP_List()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            List<Vehicle> testList = new List<Vehicle>();
+            int expectedMSRP = 15000;
+
+            testList.Add(testCar1);
+            testList.Add(testCar2);
+            testList.Add(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.MinMSRP(testList));
+        }
+
+        public void FindingMinMSRPEmpty_List()
+        {
+            List<Vehicle> testList = new List<Vehicle>();
+
+            Assert.AreEqual(0, Methods.MinMSRP(testList));
+        }
+
+        public void FindingMinMSRP_Inventory()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            Inventory testInventory = new Inventory();
+            int expectedMSRP = 15000;
+
+            testInventory.AddVehicle(testCar1);
+            testInventory.AddVehicle(testCar2);
+            testInventory.AddVehicle(testCar3);
+
+            Assert.AreEqual(expectedMSRP, Methods.MinMSRP(testInventory));
+        }
+
+        public void FindingMinMSRPEmpty_Inventory()
+        {
+            Inventory testInventory = new Inventory();
+
+            Assert.AreEqual(0, Methods.MinMSRP(testInventory));
+        }
+
+        public void FindingMaxMileage_List()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            List<Vehicle> testList = new List<Vehicle>();
+            int expectedMileage = 175000;
+
+            testList.Add(testCar1);
+            testList.Add(testCar2);
+            testList.Add(testCar3);
+
+            Assert.AreEqual(expectedMileage, Methods.MaxMileage(testList));
+        }
+
+        public void FindingMaxMileageEmpty_List()
+        {
+            List<Vehicle> testList = new List<Vehicle>();
+
+            Assert.AreEqual(0, Methods.MaxMileage(testList));
+        }
+
+        public void FindingMaxMileage_Inventory()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            Inventory testInventory = new Inventory();
+            int expectedMileage = 175000;
+
+            testInventory.AddVehicle(testCar1);
+            testInventory.AddVehicle(testCar2);
+            testInventory.AddVehicle(testCar3);
+
+            Assert.AreEqual(expectedMileage, Methods.MaxMileage(testInventory));
+        }
+
+        public void FindingMaxMileageEmpty_Inventory()
+        {
+            Inventory testInventory = new Inventory();
+
+            Assert.AreEqual(0, Methods.MaxMileage(testInventory));
+        }
+
+        public void FindingMinMileage_List()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            List<Vehicle> testList = new List<Vehicle>();
+            int expectedMileage = 75000;
+
+            testList.Add(testCar1);
+            testList.Add(testCar2);
+            testList.Add(testCar3);
+
+            Assert.AreEqual(expectedMileage, Methods.MinMileage(testList));
+        }
+
+        public void FindingMinMileageEmpty_List()
+        {
+            List<Vehicle> testList = new List<Vehicle>();
+
+            Assert.AreEqual(0, Methods.MinMileage(testList));
+        }
+
+        public void FindingMinMileage_Inventory()
+        {
+            Vehicle testCar1 = new Vehicle("1HGCM82633A001234", "Ford", "Taurus", "Maroon", 3300, 2006, 20000, 135000);
+            Vehicle testCar2 = new Vehicle("1HGCM82633A005678", "Chevy", "Malibu", "Blue", 3000, 2010, 15000, 175000);
+            Vehicle testCar3 = new Vehicle("1HGCM82633A001010", "Tesla", "Roadster", "Silver", 2500, 2012, 50000, 75000);
+
+            Inventory testInventory = new Inventory();
+            int expectedMileage = 75000;
+
+            testInventory.AddVehicle(testCar1);
+            testInventory.AddVehicle(testCar2);
+            testInventory.AddVehicle(testCar3);
+
+            Assert.AreEqual(expectedMileage, Methods.MinMileage(testInventory));
+        }
+
+        public void FindingMinMileageEmpty_Inventory()
+        {
+            Inventory testInventory = new Inventory();
+
+            Assert.AreEqual(0, Methods.MinMileage(testInventory));
         }
     }
 }
